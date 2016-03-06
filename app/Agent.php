@@ -26,7 +26,6 @@ class Agent extends Model
         return $this->belongsTo('App\Team');
     }
 
- 
     protected static function oncreate(){
         $agent = new Agent;
         $agent->name = Input::get('name');

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Providers\Authen;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;

@@ -6,6 +6,11 @@ Authen::authenticate();
 
 ?>
 
+@section('content')
+
+<div>Welcome!</div>
+
+@stop
 <!DOCTYPE html>
 <html>
     <head>
