@@ -1,6 +1,6 @@
 @extends('app')
-@section('content')
-
+@section('login_content')
+<br/>
 <div class='form-group'>
     <form method="POST" action="{{action('SessionController@store')}}">
 

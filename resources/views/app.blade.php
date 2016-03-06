@@ -7,10 +7,9 @@ Authen::authenticate();
 ?>
 
 @section('content')
-
 <div>Welcome!</div>
-
 @stop
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -258,6 +257,8 @@ h6, .h6 {
             <div>
                 @if(Authen::check())
                     @yield('useredits')
+                @else
+                    @yield('login_content')
                 @endif
             </div>
         </div>
