@@ -3,6 +3,7 @@
 @extends('app')
 
 @section('content')
+<div>Add a new Team</div>
 @stop
 
 @section('guest_content')

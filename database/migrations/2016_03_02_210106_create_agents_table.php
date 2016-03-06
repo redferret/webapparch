@@ -15,7 +15,7 @@ class CreateAgentsTable extends Migration
         Schema::create('agents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique()->index();
-            $table->integer('team_id')->unsigned()->index();
+            $table->integer('team_id')->unsigned()->index()->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,8 @@ class AddToAgents extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('agents', function(Blueprint $table){
+            $table->dropColumn('phone');
+        });
     }
 }
