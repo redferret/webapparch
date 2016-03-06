@@ -1,7 +1,14 @@
 @extends('app')
+
+
+@section('content')
+@stop
+
 @section('user_content')
 <div>Already logged in</div>
 @stop
+
+
 @section('guest_content')
 <br/>
 <div class='form-group'>
