@@ -248,7 +248,7 @@ h6, .h6 {
         <div class='row'>
             
             @if(Authen::check())
-                Current User: {{Authen::name()}}
+                <div>Current User: {{Authen::name()}}</div>
             @endif
             
             <div class='col-md-6'>
