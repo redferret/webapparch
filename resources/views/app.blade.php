@@ -7,7 +7,16 @@ Authen::authenticate();
 ?>
 
 @section('content')
-<div>Welcome!</div>
+
+@if(Authen::check())
+    <div>Welcome back {{Authen::name()}}!</div>
+@else
+    <div>Welcome!</div>
+    <p>
+        To view avaliable listings <a href='/listings'>click here</a>
+    </p>
+@endif
+
 @stop
 
 <!DOCTYPE html>
@@ -246,10 +255,6 @@ h6, .h6 {
         <br/>
         
         <div class='row'>
-            
-            @if(Authen::check())
-                <div>Current User: {{Authen::name()}}</div>
-            @endif
             
             <div class='col-md-6'>
                 @yield('content')
