@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class Authen {
+class Authen extends ServiceProvider {
     
     private static $auth = false, $nameofuser = "";
     private static $logout = false;

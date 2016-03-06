@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Listing;
 use App\Agent;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class ListingController extends Controller
 {
@@ -17,8 +18,8 @@ class ListingController extends Controller
     public function store(){
         
         Listing::storeByType(Input::get('storage_type'));
-        
-        return $this->listings();
+        $listings = Listing::all();
+        return Redirect::to('/listings')->with(compact('listings'));
     }
     
     public function update(){

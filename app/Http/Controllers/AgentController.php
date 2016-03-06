@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Agent;
 use App\Team;
 use Illuminate\Support\Facades\Input;
-
+use Illuminate\Support\Facades\Redirect;
 class AgentController extends Controller
 {
     
@@ -20,8 +20,8 @@ class AgentController extends Controller
     public function store(){
         
         Agent::storeByType(Input::get('storage_type'));
-        
-        return $this->agents();
+        $agents = Agent::all();
+        return Redirect::to('/agents')->with(compact('agents'));
     }
     
     public function update(){
