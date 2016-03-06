@@ -261,7 +261,7 @@ h6, .h6 {
             </div>
             <div>
                 @if(Authen::check())
-                    @yield('useredits')
+                    @yield('user_edits')
                 @else
                     @yield('login_content')
                 @endif

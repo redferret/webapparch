@@ -24,7 +24,7 @@
 
 @stop
 
-@section('useredits')
+@section('user_edits')
 <div>
     <a href="{{action('AgentController@create')}}">Add Agent</a>
 </div>

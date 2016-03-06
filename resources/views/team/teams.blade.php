@@ -14,7 +14,7 @@
 
 @stop
 
-@section('useredits')
+@section('user_edits')
 <div>
     <a href="{{action('TeamController@create')}}">Add a Team</a>
 </div>
