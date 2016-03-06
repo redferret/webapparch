@@ -15,8 +15,8 @@
 <div class='form-group'>
     <form method='POST' action='{{action('TeamController@store')}}'>
         <div>
-            Name of the Team
-            <input type="text" name="name" value="" required>
+            <label for='name' value=''>Name of the Team</label>
+            <input type='text' name='name' value='' required>
         </div>
         
         <br/>

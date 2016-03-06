@@ -11,7 +11,7 @@
 
 @section('user_content')
 
-<table class="table">
+<table class='table'>
     <th>Listing</th>
     <th>Agent(s)</th>
     <tr>
@@ -20,7 +20,7 @@
             <ul>
                 @foreach($listing->agents as $agent)
                 <li>
-                    <a href="{{action('AgentController@agent',[$agent->id])}}">{{$agent->name}}</a>
+                    <a href='{{action('AgentController@agent',[$agent->id])}}'>{{$agent->name}}</a>
                 </li>
                 @endforeach
             </ul>

@@ -8,7 +8,7 @@
     @foreach ($listings as $listing)
 
     <li>
-        <a href="{{action('ListingController@listing', [$listing->id])}}">{{$listing->name}}</a>
+        <a href='{{action('ListingController@listing', [$listing->id])}}'>{{$listing->name}}</a>
     </li>
 
     @endforeach

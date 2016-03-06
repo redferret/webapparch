@@ -9,13 +9,13 @@
     <ul>
         
         <li>
-            <a href="{{action('AgentController@agent', [$agent->id])}}">{{$agent->name}}</a>
+            <a href='{{action('AgentController@agent', [$agent->id])}}'>{{$agent->name}}</a>
         </li>
         
         <ul>
             @foreach ($agent->listings as $listing)
             <li>
-                <a href="{{action('ListingController@listing', [$listing->id])}}">{{$listing->name}}</a>
+                <a href='{{action('ListingController@listing', [$listing->id])}}'>{{$listing->name}}</a>
             </li>
             @endforeach
         </ul>    
@@ -28,6 +28,6 @@
 
 @section('user_content')
 <div>
-    <a href="{{action('AgentController@create')}}">Add Agent</a>
+    <a href='{{action('AgentController@create')}}'>Add Agent</a>
 </div>
 @stop

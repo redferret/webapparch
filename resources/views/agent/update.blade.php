@@ -19,14 +19,14 @@
         <div>
             <div>
                 <label for='name'>Agent</label>
-                <input type='tel' name='name' value="{{$agent->name}}">
+                <input type='tel' name='name' value='{{$agent->name}}'>
             </div>
         </div>
         <br/>
         
         <div>
             <label for='phone'>Phone Number</label>
-            <input type='tel' name='phone' value="{{$agent->phone}}">
+            <input type='tel' name='phone' value='{{$agent->phone}}'>
         </div>
         
         <br/>

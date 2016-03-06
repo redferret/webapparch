@@ -15,13 +15,13 @@
     <form method='POST' action='{{action('AgentController@store')}}'>
         <div>
             <label for='name'>Agent's Name</label>
-            <input type="text" name="name" value="" required>
+            <input type='text' name='name' value='' required>
         </div>
         <br/>
         
         <div>
             <label for='phone'>Phone Number</label>
-            <input type='tel' name='phone' value="" required>
+            <input type='tel' name='phone' value='' required>
         </div>
         
         <br/>

@@ -16,7 +16,7 @@
     <form method='POST' action='{{action('ListingController@store')}}'>
         <div>
             Listing
-            <input type="text" name="name" value="" required>
+            <input type='text' name='name' value='' required>
         </div>
         <br/>
         

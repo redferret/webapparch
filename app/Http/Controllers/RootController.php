@@ -12,6 +12,6 @@ class RootController extends Controller
      */
     public function root(){
         
-        return view("app");
+        return view('app');
     }
 }

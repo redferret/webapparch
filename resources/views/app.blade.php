@@ -23,9 +23,9 @@ Authen::authenticate();
 <html>
     <head>
         <title>Laravel Web App - Realty</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
 
         <style>
         body {
@@ -47,7 +47,7 @@ Authen::authenticate();
             margin-top: 10px;
             margin-bottom: 0;
         }
-        [class*="col-"] {
+        [class*='col-'] {
             padding-top: 15px;
             padding-bottom: 15px;
             background-color: #eee;
@@ -66,7 +66,7 @@ Authen::authenticate();
  */
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: #555;
 }
 
@@ -77,7 +77,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #333;
 }
@@ -130,7 +130,7 @@ h6, .h6 {
   height: 0;
   margin-left: -5px;
   vertical-align: middle;
-  content: " ";
+  content: ' ';
   border-right: 5px solid transparent;
   border-bottom: 5px solid;
   border-left: 5px solid transparent;
@@ -232,24 +232,24 @@ h6, .h6 {
     </head>
     <body>
         
-        <div class="blog-masthead">
+        <div class='blog-masthead'>
             
-            <div class="container">
+            <div class='container'>
                 <img src='http://ivtowersrealty.com/wp-content/uploads/2015/02/for-sale.jpg'
              style='width: 150px; height: 100px'>
-                <nav class="blog-nav">
-                    <a class="blog-nav-item" href="/">Home</a>
+                <nav class='blog-nav'>
+                    <a class='blog-nav-item' href='/'>Home</a>
     
                     @if (Authen::check())
                         <a class='blog-nav-item' href='{{action('SessionController@logout')}}'>Log Out</a>
-                        <a class="blog-nav-item" href="/agents">Agents</a>
+                        <a class='blog-nav-item' href='/agents'>Agents</a>
                     @else
                         <a class='blog-nav-item' href='/login'>Log In</a>
-                        <a class="blog-nav-item" href="/register">Sign Up</a>
+                        <a class='blog-nav-item' href='/register'>Sign Up</a>
                     @endif
                     
-                    <a class="blog-nav-item" href="/listings">Listings</a>
-                    <a class="blog-nav-item" href="/teams">Companies</a>
+                    <a class='blog-nav-item' href='/listings'>Listings</a>
+                    <a class='blog-nav-item' href='/teams'>Companies</a>
                 </nav>
             </div>
         </div>
