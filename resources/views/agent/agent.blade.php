@@ -17,10 +17,8 @@
     @endforeach
 </ul>
 @stop    
+
 @section('user_content')
-<div>
-    <a href="{{action('AgentController@store')}}">Add Agent</a>
-</div>
 <div>
     <a href='{{action('AgentController@update', [$agent->id])}}'>Update Agent</a>
 </div>

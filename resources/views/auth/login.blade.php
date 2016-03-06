@@ -2,6 +2,7 @@
 
 
 @section('content')
+<div>Log in</div>
 @stop
 
 @section('user_content')

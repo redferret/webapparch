@@ -3,18 +3,19 @@
 use App\Providers\Authen;
 
 Authen::authenticate();
+
 ?>
 
 @section('content')
 
-@if(Authen::check())
-    <div>Welcome back {{Authen::name()}}!</div>
-@else
-    <div>Welcome!</div>
-    <p>
-        To view avaliable listings <a href='/listings'>click here</a>
-    </p>
-@endif
+    @if(Authen::check())
+        <div>Welcome back {{Authen::name()}}!</div>
+    @else
+        <div>Welcome!</div>
+        <p>
+            To view avaliable listings <a href='/listings'>click here</a>
+        </p>
+    @endif
 
 @stop
 
