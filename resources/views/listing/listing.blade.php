@@ -2,6 +2,14 @@
 @extends('app')
 
 @section('content')
+<a href='/'>Back to Home</a>
+@stop
+
+@section('guest_content')
+<div>No Access by Guest</div>
+@stop
+
+@section('user_content')
 
 <table class="table">
     <th>Listing</th>

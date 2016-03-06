@@ -34,7 +34,7 @@ class Authen extends ServiceProvider {
         return Authen::$nameofuser;
     }
     
-    public static function set($name){
+    public static function grant($name){
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['nameofuser'] = $name;

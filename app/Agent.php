@@ -15,7 +15,7 @@ class Agent extends Model
     // Laravel protects from mass assignments unless we
     // specifiy which fields can be mass assigned.
     protected $fillable = [
-        'name'
+        'name', 'phone'
     ];
     
     public function listings(){
@@ -29,13 +29,16 @@ class Agent extends Model
     protected static function oncreate(){
         $agent = new Agent;
         $agent->name = Input::get('name');
+        $agent->phone = Input::get('phone');
         $team = Team::find(Input::get('teamid'));
         $team->agents()->save($agent);
     }
     
     protected static function onupdate(){
-        $agent = Agent::find(Input::get('agentid'));
+        $agent = Agent::where('name', Input::get('name'))->first();
         $team = Team::find(Input::get('teamid'));
+        $agent->phone = Input::get('phone');
+        $agent->name = Input::get('name');
         $agent->team()->dissociate();
         $team->agents()->save($agent);
     }

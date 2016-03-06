@@ -28,7 +28,7 @@ class SessionController extends Controller
     public function store(){
         
         if (Auth::attempt(Input::only('email', 'password'))){
-            Authen::set(Auth::user()->name);
+            Authen::grant(Auth::user()->name);
             return Redirect::to("/");
         }else{
             return "login Failed!";

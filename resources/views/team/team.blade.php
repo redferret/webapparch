@@ -7,9 +7,11 @@
     <strong>Agents</strong>
     @foreach ($agents as $agent)
     <ul>
+        
         <li>
             <a href="{{action('AgentController@agent', [$agent->id])}}">{{$agent->name}}</a>
         </li>
+        
         <ul>
             @foreach ($agent->listings as $listing)
             <li>
@@ -24,11 +26,8 @@
 
 @stop
 
-@section('user_edits')
+@section('user_content')
 <div>
     <a href="{{action('AgentController@create')}}">Add Agent</a>
-</div>
-<div>
-    <a href="{{action('AgentController@update')}}">Update Agent</a>
 </div>
 @stop

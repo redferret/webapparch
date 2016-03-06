@@ -1,7 +1,11 @@
 
 @extends('app')
 
-@section('content')
+@section('guest_content')
+<div>No Access by Guest</div>
+@stop
+
+@section('user_content')
 
 <title>Agents</title>
 

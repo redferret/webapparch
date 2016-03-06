@@ -24,12 +24,12 @@ class AgentController extends Controller
         return Redirect::to('/agents')->with(compact('agents'));
     }
     
-    public function update(){
+    public function update($id){
         
-        $agents = Agent::all();
+        $agent = Agent::findOrFail($id);
         $teams = Team::all();
         
-        return view('agent.update')->with(compact('agents','teams'));
+        return view('agent.update')->with(compact('agent','teams'));
     }
     
     /**
@@ -60,6 +60,6 @@ class AgentController extends Controller
          * Any strings that are not set will simply be skipped.
          * http://php.net/manual/en/function.compact.php
          */
-        return view('agent.agent')->with(compact('agent', 'agentsTeam', 'var'));
+        return view('agent.agent')->with(compact('agent', 'agentsTeam'));
     }
 }

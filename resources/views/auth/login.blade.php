@@ -1,5 +1,8 @@
 @extends('app')
-@section('login_content')
+@section('user_content')
+<div>Already logged in</div>
+@stop
+@section('guest_content')
 <br/>
 <div class='form-group'>
     <form method="POST" action="{{action('SessionController@store')}}">

@@ -9,7 +9,7 @@ Route::get("/", "RootController@root");
 
 Route::get("agents", "AgentController@agents");
 Route::get("agent/create", "AgentController@create");
-Route::get("agent/update", "AgentController@update");
+Route::get("agent/update/{id}", "AgentController@update");
 Route::get("agent/{id}", 'AgentController@agent');
 
 Route::get("listings", "ListingController@listings");

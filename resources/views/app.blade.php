@@ -3,7 +3,6 @@
 use App\Providers\Authen;
 
 Authen::authenticate();
-
 ?>
 
 @section('content')
@@ -242,6 +241,7 @@ h6, .h6 {
     
                     @if (Authen::check())
                         <a class='blog-nav-item' href='{{action('SessionController@logout')}}'>Log Out</a>
+                        <a class="blog-nav-item" href="/agents">Agents</a>
                     @else
                         <a class='blog-nav-item' href='/login'>Log In</a>
                         <a class="blog-nav-item" href="/register">Sign Up</a>
@@ -261,9 +261,9 @@ h6, .h6 {
             </div>
             <div>
                 @if(Authen::check())
-                    @yield('user_edits')
+                    @yield('user_content')
                 @else
-                    @yield('login_content')
+                    @yield('guest_content')
                 @endif
             </div>
         </div>
