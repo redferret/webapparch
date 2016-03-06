@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Auth;
+use App\Providers\Authen;
 use App\User;
 
 class RegisterController extends Controller
@@ -21,18 +21,21 @@ class RegisterController extends Controller
         $confirm = Input::get('password_confirmation');
         
         if ($password == $confirm){
-            if (!Auth::attempt(Input::only('email', 'password'))){
+            
+            $user = User::where('email', Input::get('email'))->first();
+            
+            if ($user == null){
+            
                 $user = User::create([
                     'name'=>Input::get('name'), 
                     'email'=>Input::get('email'), 
                     'password'=>Hash::make($password)]);
                 $user->save();
-                
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['nameofuser'] = Input::get('name');
+
+                Authen::grant($user->name);
                 return Redirect::to("/");
-            }else{
+                
+            } else {
                 $msg = "User already exists";
             }
         }else{

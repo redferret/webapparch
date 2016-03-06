@@ -15,7 +15,7 @@
 </ul>
 @stop
 
-@section('user_edits')
+@section('user_content')
 <div>
     <a href='{{action('ListingController@create')}}'>Add Listing</a>
 </div>
