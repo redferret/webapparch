@@ -3,6 +3,7 @@
 
 @section('content')
 <strong>Team - {{$team->name}}</strong>
+<div>Phone: {{$team->phone}}</div>
 <p>
     <strong>Agents</strong>
     @foreach ($agents as $agent)
@@ -29,5 +30,8 @@
 @section('user_content')
 <div>
     <a href='{{action('AgentController@create')}}'>Add Agent</a>
+</div>
+<div>
+    <a href='{{action('TeamController@update', [$team->id])}}'>Update Team</a>
 </div>
 @stop

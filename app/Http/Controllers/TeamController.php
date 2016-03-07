@@ -15,13 +15,14 @@ class TeamController extends Controller
     public function store(){
         
         Team::storeByType(Input::get('storage_type'));
-        $teams = Team::all();
-        return Redirect::to('/teams')->with(compact('teams'));
+        $id = Input::get('teamid');
+        $team = Team::findOrFail($id);
+        return Redirect::to('/team/'.$id)->with(compact('team'));
     }
     
-    public function update(){
-        $teams = Team::all();
-        return view('team.update')->with(compact('teams'));
+    public function update($id){
+        $team = Team::findOrFail($id);
+        return view('team.update')->with(compact('team'));
     }
     
     /**

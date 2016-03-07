@@ -19,7 +19,7 @@ Route::get("listing/{id}", 'ListingController@listing');
 
 Route::get("teams", "TeamController@teams");
 Route::get("team/create", "TeamController@create");
-Route::get("team/update", "TeamController@update");
+Route::get("team/update/{id}", "TeamController@update");
 Route::get("team/{id}", 'TeamController@team');
 
 Route::get('login', 'SessionController@login');

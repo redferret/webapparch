@@ -1,9 +1,9 @@
-<!-- Update Agent -->
+<!-- Update Team -->
 
 @extends('app')
 
 @section('content')
-<div>Remove Team</div>
+<div>Edit Team</div>
 @stop
 
 @section('guest_content')
@@ -17,18 +17,22 @@
     <form method='POST' action='{{action('TeamController@store')}}'>
         
         <div>
-            Teams
-            <select name='teamid'>
-                @foreach ($teams as $team)
-                <option value='{{$team->id}}'>
-                    {{$team->name}}
-                </option>
-                @endforeach
-            </select>
+            <input type='hidden' name='teamid' value='{{$team->id}}'/>
+            <label for='name'>Team</label>
+            <input name='name' value='{{$team->name}}'/>
+        </div>
+        <br/>
+        <div>
+            <label for='phone'>Phone</label>
+            <input name='phone' value='{{$team->phone}}'/>
         </div>
         
         <br/>
+        <div>
+            <button name='storage_type' value='update' type='submit'>Update Team</button>
+        </div>
         
+        <br/>
         <div>
             <button name='storage_type' value='delete' type='submit'>Delete Team</button>
         </div>

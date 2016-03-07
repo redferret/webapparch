@@ -18,6 +18,7 @@
         
         <div>
             <div>
+                <input type='hidden' name='agentid' value='{{$agent->id}}'/>
                 <label for='name'>Agent</label>
                 <input type='tel' name='name' value='{{$agent->name}}'>
             </div>

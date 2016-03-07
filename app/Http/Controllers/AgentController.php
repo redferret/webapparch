@@ -20,8 +20,9 @@ class AgentController extends Controller
     public function store(){
         
         Agent::storeByType(Input::get('storage_type'));
-        $agents = Agent::all();
-        return Redirect::to('/agents')->with(compact('agents'));
+        $id = Input::get('agentid');
+        $agent = Agent::findOrFail($id);
+        return Redirect::to('/agent/'.$id)->with(compact('agent'));
     }
     
     public function update($id){

@@ -19,7 +19,4 @@
 <div>
     <a href='{{action('TeamController@create')}}'>Add a Team</a>
 </div>
-<div>
-    <a href='{{action('TeamController@update')}}'>Remove a Team</a>
-</div>
 @stop

@@ -10,7 +10,7 @@ class Team extends Model
 {
     
     protected $fillable = [
-        'name'
+        'name', 'phone'
     ];
  
     protected static function oncreate(){
@@ -29,6 +29,14 @@ class Team extends Model
         Team::destroy($id);
     }
     
+    protected static function onupdate(){
+        $id = Input::get('teamid');
+        $team = Team::find($id);
+        $team->name = Input::get('name');
+        $team->phone = Input::get('phone');
+        $team->save();
+    }
+
     public static function storeByType($type){
         $tasks = Team::$storage_task;
         Team::$tasks[$type]();
