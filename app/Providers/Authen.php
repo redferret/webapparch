@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class Authen extends ServiceProvider {
     
-    private static $auth = false, $nameofuser = "";
+    private static $auth = false, $nameofuser = null;
     private static $logout = false;
     
     /**
@@ -27,6 +27,7 @@ class Authen extends ServiceProvider {
             unset($_SESSION['nameofuser']);
             Authen::$logout = false;
             Authen::$auth = false;
+            Authen::$nameofuser = null;
         }else{
             if (isset($_SESSION['loggedin'])){
                 Authen::$auth = $_SESSION['loggedin'];
@@ -59,5 +60,10 @@ class Authen extends ServiceProvider {
         $_SESSION['loggedin'] = true;
         $_SESSION['nameofuser'] = $name;
     }
+
+    public function register() {
+        
+    }
+
 }
 

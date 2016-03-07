@@ -47,19 +47,7 @@ class AgentController extends Controller
     public function agent($id){
         $agent = Agent::findOrFail($id);
         $agentsTeam = $agent->team;
-        /**
-         * array compact ( mixed $varname1 [, mixed $... ] )
-         * Creates an array containing variables and their values.
-         * 
-         * For each of these, compact() looks for a variable with that name 
-         * in the current symbol table and adds it to the output array 
-         * such that the variable name becomes the key and the contents 
-         * of the variable become the value for that key. In short, 
-         * it does the opposite of extract().
-         * 
-         * Any strings that are not set will simply be skipped.
-         * http://php.net/manual/en/function.compact.php
-         */
+
         return view('agent.agent')->with(compact('agent', 'agentsTeam'));
     }
 }

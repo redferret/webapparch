@@ -12,11 +12,7 @@ class SessionController extends Controller
     
     public function login(){
 
-        if (Authen::check()){
-            return view('app');
-        }else{
-            return view('auth.login');
-        }
+        return view('auth.login');
         
     }
 
