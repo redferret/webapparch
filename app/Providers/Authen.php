@@ -21,7 +21,6 @@ class Authen extends ServiceProvider {
      * the user.
      */
     public static function authenticate(){
-        session_start();
         if (Authen::$logout){
             unset($_SESSION['loggedin']);
             unset($_SESSION['nameofuser']);
@@ -56,7 +55,6 @@ class Authen extends ServiceProvider {
      * @param type $name The name of the user.
      */
     public static function grant($name){
-        session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['nameofuser'] = $name;
     }
