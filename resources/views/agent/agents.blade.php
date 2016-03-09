@@ -31,6 +31,7 @@
 @stop
 
 @section('user_content')
+<br/>
 <div>
     <a href='{{action('AgentController@create')}}'>Add Agent</a>
 </div>

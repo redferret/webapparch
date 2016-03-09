@@ -8,6 +8,9 @@ Route::get('teams/{id}', 'TeamController@show');
 Route::post('team/{id}/destroy', 'TeamController@destroy');
 
 Route::get("/", "RootController@root");
+Route::get("/something", function(){
+    return "This is a closure - typically not accepted style";
+});
 
 Route::get('agent/edit/{id}', 'AgentController@edit');
 Route::post('agent/update/{id}', 'AgentController@update');

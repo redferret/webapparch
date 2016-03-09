@@ -4,17 +4,32 @@ use App\Providers\Authen;
 
 Authen::authenticate();
 
+
+// Example for {!! !!}
+$exp_br = "<br/>";
+$exp_title = "<strong>Title</strong>";
+$exp_enable = false;
 ?>
 
 @section('content')
 
     @if(Authen::check())
+    
         <div>Welcome back {{Authen::name()}}!</div>
+        
     @else
+    
         <div>Welcome!</div>
-        <p>
-            To view avaliable listings <a href='/listings'>click here</a>
-        </p>
+
+        @if($exp_enable)
+            <br/>
+            {{$exp_br}}
+            {{$exp_title}}
+            {!!$exp_br!!}
+            {!!$exp_title!!}
+            {{$undefined or "Default"}}
+        @endif
+
     @endif
 
 @stop
