@@ -8,7 +8,7 @@
 <ul>
     @foreach ($teams as $team)
     <li>
-        <a href='{{action('TeamController@team', [$team->id])}}'>{{$team->name}}</a>
+        <a href='{{action('TeamController@show', [$team->id])}}'>{{$team->name}}</a>
     </li>
     @endforeach
 </ul>

@@ -3,33 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use App\Agent;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 class TeamController extends Controller
 {
-    
+
     public function create(){
         return view('team.create');
     }
     
+    public function destroy($id){
+        $team = Team::findOrFail($id);
+
+        $agents = $team->agents;
+
+        foreach ($agents as $agent){
+            Agent::destroy($agent->id);
+        }
+        Team::destroy($id);
+        
+        return $this->index();
+    }
+    
     public function store(){
         
-        Team::storeByType(Input::get('storage_type'));
-        $id = Input::get('teamid');
+        Team::create(['name'=>Input::get('name'), 'phone'=>Input::get('phone')]);
+        
+        return $this->index();
+    }
+    
+    public function teamUpdate($id){
         $team = Team::findOrFail($id);
-        return Redirect::to('/team/'.$id)->with(compact('team'));
+        return view('team.update')->with(compact('team'));
     }
     
     public function update($id){
-        $team = Team::findOrFail($id);
-        return view('team.update')->with(compact('team'));
+        $team = Team::find($id);
+        $team->name = Input::get('name');
+        $team->phone = Input::get('phone');
+        $team->save();
+        return $this->show($id);
     }
     
     /**
      * The content for the teams
      * @return type
      */
-    public function teams(){
+    public function index(){
         $teams = Team::all();
         
         return view('team.teams')->with(compact('teams'));
@@ -40,7 +60,7 @@ class TeamController extends Controller
      * @param type $id The id of the team to search for
      * @return type The content
      */
-    public function team($id){
+    public function show($id){
         $team = Team::findOrFail($id);
         $agents = $team->agents;
         return view('team.team')->with(compact('team', 'agents'));

@@ -14,7 +14,7 @@
 @section('user_content')
 
 <div class='form-group'>
-    <form method='POST' action='{{action('TeamController@store')}}'>
+    <form method='Post' action='{{action('TeamController@update', [$team->id])}}'>
         
         <div>
             <input type='hidden' name='teamid' value='{{$team->id}}'/>
@@ -29,12 +29,15 @@
         
         <br/>
         <div>
-            <button name='storage_type' value='update' type='submit'>Update Team</button>
+            <button type='submit'>Update Team</button>
         </div>
         
         <br/>
+        
+    </form>
+    <form method='Post' action='{{action('TeamController@destroy', [$team->id])}}'>
         <div>
-            <button name='storage_type' value='delete' type='submit'>Delete Team</button>
+            <button type='submit'>Delete Team</button>
         </div>
     </form>
 </div>

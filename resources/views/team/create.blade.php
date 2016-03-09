@@ -23,7 +23,14 @@
         <br/>
         
         <div>
-            <button name='storage_type' value='create' type='submit'>Add Team</button>
+            <label for='phone' value=''>Phone Number</label>
+            <input type='text' name='phone' value='' required>
+        </div>
+        
+        <br/>
+        
+        <div>
+            <button name='storage_type' type='submit'>Add Team</button>
         </div>
     </form>
 </div>

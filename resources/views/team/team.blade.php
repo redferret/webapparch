@@ -32,6 +32,6 @@
     <a href='{{action('AgentController@create')}}'>Add Agent</a>
 </div>
 <div>
-    <a href='{{action('TeamController@update', [$team->id])}}'>Update Team</a>
+    <a href='{{action('TeamController@teamUpdate', [$team->id])}}'>Update Team</a>
 </div>
 @stop

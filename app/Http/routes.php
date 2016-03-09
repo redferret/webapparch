@@ -3,7 +3,14 @@ Route::resource('sessions', 'SessionController');
 Route::resource('register', 'RegisterController');
 Route::resource('agents', 'AgentController');
 Route::resource('listings', 'ListingController');
-Route::resource('teams', 'TeamController');
+
+Route::get('team/edit/{id}', 'TeamController@teamUpdate');
+Route::post('team/update/{id}', 'TeamController@update');
+Route::post('team/store', 'TeamController@store');
+Route::get('teams', 'TeamController@index');
+Route::get('teams/create', 'TeamController@create');
+Route::get('teams/{id}', 'TeamController@show');
+Route::post('team/{id}/destroy', 'TeamController@destroy');
 
 Route::get("/", "RootController@root");
 
@@ -16,11 +23,6 @@ Route::get("listings", "ListingController@listings");
 Route::get("listing/create", "ListingController@create");
 Route::get("listing/update", "ListingController@update");
 Route::get("listing/{id}", 'ListingController@listing');
-
-Route::get("teams", "TeamController@teams");
-Route::get("team/create", "TeamController@create");
-Route::get("team/update/{id}", "TeamController@update");
-Route::get("team/{id}", 'TeamController@team');
 
 Route::get('login', 'SessionController@login');
 Route::get('logout', 'SessionController@logout');
