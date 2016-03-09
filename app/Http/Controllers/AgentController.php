@@ -11,33 +11,48 @@ class AgentController extends Controller
     
     
     public function create(){
-        
         $teams = Team::all();
-        
         return view('agent.create')->with(compact('teams'));
     }
     
     public function store(){
+        $agent = new Agent;
+        $agent->name = Input::get('name');
+        $agent->phone = Input::get('phone');
+        $team = Team::find(Input::get('teamid'));
+        $team->agents()->save($agent);
         
-        Agent::storeByType(Input::get('storage_type'));
-        $id = Input::get('agentid');
-        $agent = Agent::findOrFail($id);
-        return Redirect::to('/agent/'.$id)->with(compact('agent'));
+        return Redirect::to(action('AgentController@show', [$agent->id]));
     }
     
     public function update($id){
+        $agent = Agent::findOrFail($id);
+        $team = Team::find(Input::get('teamid'));
+        $agent->phone = Input::get('phone');
+        $agent->name = Input::get('name');
+        $agent->team()->dissociate();
+        $team->agents()->save($agent);
         
+        return Redirect::to(action('AgentController@show', [$agent->id]));
+    }
+    
+    public function destroy($id){
+        $agent = Agent::findOrFail($id);
+        $agent->delete();
+        return Redirect::to(action('AgentController@index'));
+    }
+    
+    public function edit($id){
         $agent = Agent::findOrFail($id);
         $teams = Team::all();
-        
-        return view('agent.update')->with(compact('agent','teams'));
+        return view('agent.update')->with(compact('agent', 'teams'));
     }
     
     /**
      * Gets the agents page
      * @return type The content for agents
      */
-    public function agents(){
+    public function index(){
 
         $agents = Agent::all();
 
@@ -45,7 +60,7 @@ class AgentController extends Controller
     }
 
     
-    public function agent($id){
+    public function show($id){
         $agent = Agent::findOrFail($id);
         $agentsTeam = $agent->team;
 

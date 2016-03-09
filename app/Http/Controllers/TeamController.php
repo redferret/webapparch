@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Team;
 use App\Agent;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 class TeamController extends Controller
 {
 
@@ -22,17 +23,17 @@ class TeamController extends Controller
         }
         Team::destroy($id);
         
-        return $this->index();
+        return Redirect::to(action('TeamController@index'));
     }
     
     public function store(){
         
-        Team::create(['name'=>Input::get('name'), 'phone'=>Input::get('phone')]);
+        $team = Team::create(['name'=>Input::get('name'), 'phone'=>Input::get('phone')]);
         
-        return $this->index();
+        return Redirect::to(action('TeamController@show', [$team->id]));
     }
     
-    public function teamUpdate($id){
+    public function edit($id){
         $team = Team::findOrFail($id);
         return view('team.update')->with(compact('team'));
     }
@@ -42,7 +43,7 @@ class TeamController extends Controller
         $team->name = Input::get('name');
         $team->phone = Input::get('phone');
         $team->save();
-        return $this->show($id);
+        return Redirect::to(action('TeamController@show', [$team->id]));
     }
     
     /**

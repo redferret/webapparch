@@ -14,11 +14,10 @@
 @section('user_content')
 
 <div class='form-group'>
-    <form method='POST' action='{{action('AgentController@store')}}'>
+    <form method='POST' action='{{action('AgentController@update', [$agent->id])}}'>
         
         <div>
             <div>
-                <input type='hidden' name='agentid' value='{{$agent->id}}'/>
                 <label for='name'>Agent</label>
                 <input type='tel' name='name' value='{{$agent->name}}'>
             </div>
@@ -46,11 +45,14 @@
         <br/>
         
         <div>
-            <button name='storage_type' value='update' type='submit'>Update Agent</button>
+            <button type='submit'>Update Agent</button>
         </div>
         <br/>
+        
+    </form>
+    <form method='Post' action='{{action('AgentController@destroy', [$agent->id])}}'>
         <div>
-            <button name='storage_type' value='delete' type='submit'>Delete Agent</button>
+            <button type='submit'>Delete Agent</button>
         </div>
     </form>
 </div>

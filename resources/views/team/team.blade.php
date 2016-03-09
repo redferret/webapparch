@@ -10,7 +10,7 @@
     <ul>
         
         <li>
-            <a href='{{action('AgentController@agent', [$agent->id])}}'>{{$agent->name}}</a>
+            <a href='{{action('AgentController@show', [$agent->id])}}'>{{$agent->name}}</a>
         </li>
         
         <ul>
@@ -29,9 +29,6 @@
 
 @section('user_content')
 <div>
-    <a href='{{action('AgentController@create')}}'>Add Agent</a>
-</div>
-<div>
-    <a href='{{action('TeamController@teamUpdate', [$team->id])}}'>Update Team</a>
+    <a href='{{action('TeamController@edit', [$team->id])}}'>Update Team</a>
 </div>
 @stop

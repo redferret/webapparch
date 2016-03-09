@@ -42,7 +42,7 @@
         <br/>
         
         <div>
-            <button name='storage_type' value='create' type='submit'>Add Agent</button>
+            <button type='submit'>Add Agent</button>
         </div>
     </form>
 </div>

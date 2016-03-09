@@ -1,10 +1,9 @@
 <?php
 Route::resource('sessions', 'SessionController');
 Route::resource('register', 'RegisterController');
-Route::resource('agents', 'AgentController');
 Route::resource('listings', 'ListingController');
 
-Route::get('team/edit/{id}', 'TeamController@teamUpdate');
+Route::get('team/edit/{id}', 'TeamController@edit');
 Route::post('team/update/{id}', 'TeamController@update');
 Route::post('team/store', 'TeamController@store');
 Route::get('teams', 'TeamController@index');
@@ -14,10 +13,13 @@ Route::post('team/{id}/destroy', 'TeamController@destroy');
 
 Route::get("/", "RootController@root");
 
-Route::get("agents", "AgentController@agents");
-Route::get("agent/create", "AgentController@create");
-Route::get("agent/update/{id}", "AgentController@update");
-Route::get("agent/{id}", 'AgentController@agent');
+Route::get('agent/edit/{id}', 'AgentController@edit');
+Route::post('agent/update/{id}', 'AgentController@update');
+Route::post('agent/store', 'AgentController@store');
+Route::get('agents', 'AgentController@index');
+Route::get('agents/create', 'AgentController@create');
+Route::get('agents/{id}', 'AgentController@show');
+Route::post('agent/{id}/destroy', 'AgentController@destroy');
 
 Route::get("listings", "ListingController@listings");
 Route::get("listing/create", "ListingController@create");

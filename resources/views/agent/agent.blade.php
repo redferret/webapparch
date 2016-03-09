@@ -6,7 +6,7 @@
 <div class='page-header'>
     <h2>Agent Info</h2>
 </div>
-<strong>{{$agent->name}} - <a href='{{action('TeamController@team',[$agentsTeam->id])}}'>{{$agentsTeam->name}}</a></strong>
+<strong>{{$agent->name}} - <a href='{{action('TeamController@show',[$agentsTeam->id])}}'>{{$agentsTeam->name}}</a></strong>
 <div>Phone - {{$agent->phone}}</div>
 <ul>
     
@@ -20,6 +20,6 @@
 
 @section('user_content')
 <div>
-    <a href='{{action('AgentController@update', [$agent->id])}}'>Update Agent</a>
+    <a href='{{action('AgentController@edit', [$agent->id])}}'>Update Agent</a>
 </div>
 @stop
