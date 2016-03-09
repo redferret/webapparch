@@ -13,15 +13,15 @@
 @section('user_content')
 
 <div class='form-group'>
-    <form method='POST' action='{{action('ListingController@store')}}'>
+    <form method='Post' action='{{action('ListingController@store')}}'>
         <div>
-            Listing
+            <label for='name'>Address</label>
             <input type='text' name='name' value='' required>
         </div>
         <br/>
         
         <div>
-            <button name='storage_type' value='create' type='submit'>Add Listing</button>
+            <button type='submit'>Add Listing</button>
         </div>
     </form>
 </div>

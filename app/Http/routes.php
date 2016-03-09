@@ -1,7 +1,6 @@
 <?php
 Route::resource('sessions', 'SessionController');
 Route::resource('register', 'RegisterController');
-Route::resource('listings', 'ListingController');
 
 Route::get('team/edit/{id}', 'TeamController@edit');
 Route::post('team/update/{id}', 'TeamController@update');
@@ -21,10 +20,13 @@ Route::get('agents/create', 'AgentController@create');
 Route::get('agents/{id}', 'AgentController@show');
 Route::post('agent/{id}/destroy', 'AgentController@destroy');
 
-Route::get("listings", "ListingController@listings");
-Route::get("listing/create", "ListingController@create");
-Route::get("listing/update", "ListingController@update");
-Route::get("listing/{id}", 'ListingController@listing');
+Route::get('listing/edit/{id}', 'ListingController@edit');
+Route::post('listing/update/{id}', 'ListingController@update');
+Route::post('listing/store', 'ListingController@store');
+Route::get('listings', 'ListingController@index');
+Route::get('listings/create', 'ListingController@create');
+Route::get('listings/{id}', 'ListingController@show');
+Route::post('listing/{id}/destroy', 'ListingController@destroy');
 
 Route::get('login', 'SessionController@login');
 Route::get('logout', 'SessionController@logout');

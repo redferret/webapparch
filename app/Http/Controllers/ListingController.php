@@ -17,24 +17,39 @@ class ListingController extends Controller
     
     public function store(){
         
-        Listing::storeByType(Input::get('storage_type'));
-        $listings = Listing::all();
-        return Redirect::to('/listings')->with(compact('listings'));
+        $listing = Listing::create(['name'=>Input::get('name')]);
+        
+        return Redirect::to(action('ListingController@show', [$listing->id]));
     }
     
-    public function update(){
+    public function update($id){
+        
+        $listing = Listing::find($id);
+        $agent = Agent::find(Input::get('agentid'));
+        $listing->agents()->save($agent);
+        
+        return Redirect::to(action('ListingController@show', [$listing->id]));
+    }
+    
+    public function destroy($id){
+        
+        $listing = Listing::find($id);
+        $listing->delete();
+        
+        return Redirect::to(action('ListingController@index'));
+    }
+    
+    public function edit($id){
+        $listing = Listing::findOrFail($id);
         $agents = Agent::all();
-        $listings = Listing::all();
-        return view('listing.update')->with(compact('agents', 'listings'));
+        return view('listing.update')->with(compact('listing', 'agents'));
     }
-    
     /**
      * The content for the teams
      * @return type
      */
-    public function listings(){
+    public function index(){
         $listings = Listing::all();
-        
         return view('listing.listings')->with(compact('listings'));
     }
     
@@ -43,9 +58,8 @@ class ListingController extends Controller
      * @param type $id The id of the team to search for
      * @return type The content
      */
-    public function listing($id){
+    public function show($id){
         $listing = Listing::findOrFail($id);
-        
         return view('listing.listing')->with(compact('listing'));
     }
 }

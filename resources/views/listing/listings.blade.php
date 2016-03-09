@@ -8,7 +8,7 @@
     @foreach ($listings as $listing)
 
     <li>
-        <a href='{{action('ListingController@listing', [$listing->id])}}'>{{$listing->name}}</a>
+        <a href='{{action('ListingController@show', [$listing->id])}}'>{{$listing->name}}</a>
     </li>
 
     @endforeach
@@ -18,8 +18,5 @@
 @section('user_content')
 <div>
     <a href='{{action('ListingController@create')}}'>Add Listing</a>
-</div>
-<div>
-    <a href='{{action('ListingController@update')}}'>Update a Listing</a>
 </div>
 @stop

@@ -4,10 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Agent;
-use App\Team;
-use Illuminate\Support\Facades\Input;
-
 class Agent extends Model
 {
     
