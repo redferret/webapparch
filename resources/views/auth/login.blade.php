@@ -2,13 +2,11 @@
 
 
 @section('content')
-<div>Log in</div>
 @stop
 
 @section('user_content')
 <div>Already logged in</div>
 @stop
-
 
 @section('guest_content')
 <br/>

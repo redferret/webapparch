@@ -1,7 +1,4 @@
 <?php
-Route::resource('sessions', 'SessionController');
-Route::resource('register', 'RegisterController');
-
 Route::get('team/edit/{id}', 'TeamController@edit');
 Route::post('team/update/{id}', 'TeamController@update');
 Route::post('team/store', 'TeamController@store');
@@ -28,8 +25,10 @@ Route::get('listings/create', 'ListingController@create');
 Route::get('listings/{id}', 'ListingController@show');
 Route::post('listing/{id}/destroy', 'ListingController@destroy');
 
+Route::resource('sessions', 'SessionController');
 Route::get('login', 'SessionController@login');
 Route::get('logout', 'SessionController@logout');
 
+Route::resource('register', 'RegisterController');
 Route::get('register', "RegisterController@reg");
 

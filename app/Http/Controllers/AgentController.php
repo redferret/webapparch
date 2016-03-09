@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 class AgentController extends Controller
 {
     
-    
     public function create(){
         $teams = Team::all();
         return view('agent.create')->with(compact('teams'));

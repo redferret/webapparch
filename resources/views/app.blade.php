@@ -57,15 +57,17 @@ Authen::authenticate();
         <div class='row'>
             
             <div class='col-md-6'>
-                @yield('content')
+                <div>@yield('content')</div>
+                
+                <div>
+                    @if(Authen::check())
+                        @yield('user_content')
+                    @else
+                        @yield('guest_content')
+                    @endif
+                </div>
             </div>
-            <div>
-                @if(Authen::check())
-                    @yield('user_content')
-                @else
-                    @yield('guest_content')
-                @endif
-            </div>
+            
         </div>
         
         

@@ -16,7 +16,7 @@
         <ul>
             @foreach ($agent->listings as $listing)
             <li>
-                <a href='{{action('ListingController@listing', [$listing->id])}}'>{{$listing->name}}</a>
+                <a href='{{action('ListingController@show', [$listing->id])}}'>{{$listing->name}}</a>
             </li>
             @endforeach
         </ul>    
